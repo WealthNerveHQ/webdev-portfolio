@@ -23,7 +23,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # npm install, not npm ci. The lockfile is generated on Windows, which never
+      # installs the wasm32-wasi variants of @tailwindcss/oxide, so their nested
+      # @emnapi deps are absent and npm ci refuses to run on Linux.
+      - run: npm install --no-audit --no-fund
       - run: npm run build
       - run: node scripts/preflight.mjs
       - uses: actions/configure-pages@v5
