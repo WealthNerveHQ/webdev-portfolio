@@ -1,4 +1,10 @@
-@import "tailwindcss";
+/* source(none) disables Tailwind's automatic project-wide scan. Without it every
+   entry's stylesheet carries the utilities used by every other site, so adding a
+   generated site quietly inflated the two hand-built ones. Each theme.css opts
+   in to exactly the source tree it renders. */
+@import "tailwindcss" source(none);
+@source "./components";
+@source "./lib";
 
 /* Base shadcn token layer. Each site overrides these in its own theme.css —
    the components stay the same, the design system does not. */

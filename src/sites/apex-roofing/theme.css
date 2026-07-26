@@ -1,0 +1,69 @@
+@import '../../index.css';
+@source '../../gen';
+
+/* Kit: cold-chrome - auto repair, machining, IT, security. Silver, smoke, no warmth
+   Self-hosted fonts. No Google Fonts CDN: LG Muenchen I (3 O 17493/20) held that
+   embedding it transmits visitor IPs without consent, a DSGVO breach. Also just
+   faster. */
+@import '@fontsource-variable/chivo';
+@import '@fontsource-variable/geist';
+
+@layer base {
+  :root {
+    --radius: 0rem;
+    --background: #eeeff1;
+    --foreground: #0f1113;
+    --card: #ffffff;
+    --primary: #0f1113;
+    --primary-foreground: #ffffff;
+    --muted: #dfe1e4;
+    --muted-foreground: #565b61;
+    --border: #cdd0d4;
+    --card-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--foreground);
+    --secondary: var(--muted);
+    --secondary-foreground: var(--foreground);
+    --accent: var(--muted);
+    --accent-foreground: var(--foreground);
+    --input: var(--border);
+    --ring: var(--primary);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+    --background: #0b0c0d;
+    --foreground: #e8eaec;
+    --card: #141618;
+    --primary: #e8eaec;
+    --primary-foreground: #0b0c0d;
+    --muted: #1d2022;
+    --muted-foreground: #8f959b;
+    --border: #26292c;
+      --card-foreground: var(--foreground);
+      --popover: var(--card);
+      --secondary: var(--muted);
+      --accent: var(--muted);
+      --input: var(--border);
+    }
+  }
+}
+
+@theme inline {
+  --font-display: 'Chivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+  :where(section[id]) {
+    scroll-margin-top: 5.5rem;
+  }
+}

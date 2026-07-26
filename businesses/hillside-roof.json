@@ -1,0 +1,151 @@
+{
+  "slug": "hillside-roof",
+  "name": "Hillside Roof Co",
+  "trade": "roofer",
+  "lang": "en",
+  "country": "us",
+  "kit": "black-tan",
+  "sections": [
+    "heroBand",
+    "servicesList",
+    "callBand",
+    "gallery",
+    "quote",
+    "process",
+    "faq",
+    "contact"
+  ],
+  "eyebrow": "Roofing in Denver",
+  "headline": "Roofing in Denver, done properly.",
+  "subline": "Replace this line with what this business actually promises. Twenty words maximum.",
+  "phone": "+13035550188",
+  "phoneLabel": "(303) 555-0188",
+  "address": {
+    "street": "1 Example Street",
+    "city": "Denver"
+  },
+  "hours": [
+    {
+      "day": "Mon to Fri",
+      "time": "8:00 to 17:00"
+    },
+    {
+      "day": "Sat",
+      "time": "9:00 to 13:00"
+    },
+    {
+      "day": "Sun",
+      "time": "closed"
+    }
+  ],
+  "services": [
+    {
+      "title": "Roof repair",
+      "body": "Leaks, storm damage and missing shingles, usually fixed in a single visit.",
+      "image": "repair"
+    },
+    {
+      "title": "Full replacement",
+      "body": "Tear-off and re-roof with a written warranty on both labour and materials.",
+      "image": "inspection"
+    },
+    {
+      "title": "Gutters",
+      "body": "Cleaning, repair and replacement, including guards that actually keep leaves out.",
+      "image": "gutter"
+    },
+    {
+      "title": "Free inspection",
+      "body": "We photograph the whole roof and show you what we found, not just a quote."
+    },
+    {
+      "title": "Insurance claims",
+      "body": "We document storm damage properly so the claim goes through the first time."
+    },
+    {
+      "title": "Emergency tarping",
+      "body": "Same-day cover to stop water getting in while the repair is scheduled."
+    }
+  ],
+  "usps": [
+    {
+      "k": "In business",
+      "v": "since 2004"
+    },
+    {
+      "k": "Licensed and insured",
+      "v": "fully"
+    },
+    {
+      "k": "Roofs completed",
+      "v": "over 1,800"
+    },
+    {
+      "k": "Free estimates",
+      "v": "always"
+    }
+  ],
+  "process": [
+    {
+      "label": "Call us",
+      "body": "Tell us what you are seeing. We will say straight away if it is urgent."
+    },
+    {
+      "label": "Free inspection",
+      "body": "We go up, photograph everything, and show you the damage ourselves."
+    },
+    {
+      "label": "Fixed quote",
+      "body": "Written, itemised for labour and materials, and it does not move."
+    },
+    {
+      "label": "Work and cleanup",
+      "body": "We finish, we walk it with you, and we take every nail off your driveway."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How fast can you come out?",
+      "a": "For active leaks, usually the same day. For scheduled work we are typically booking one to two weeks out, and we will tell you honestly which one you are."
+    },
+    {
+      "q": "Do you handle the insurance paperwork?",
+      "a": "Yes. We document the damage with dated photographs and write the scope in the format adjusters expect, which is usually what decides whether a claim is approved."
+    },
+    {
+      "q": "What does a repair cost?",
+      "a": "Small repairs typically run a few hundred dollars. A full replacement depends on square footage, pitch and material, and we quote it in writing after the inspection, never over the phone."
+    },
+    {
+      "q": "How long does a roof take?",
+      "a": "Most homes are a one to two day job once materials are on site. Weather is the only thing that reliably moves the date."
+    }
+  ],
+  "quote": null,
+  "cta": {
+    "primary": {
+      "label": "Call now",
+      "href": "tel:+13035550188"
+    },
+    "secondary": {
+      "label": "Get a quote",
+      "href": "#kontakt"
+    }
+  },
+  "band": {
+    "headline": "Water coming in? We can tarp it today.",
+    "body": "Emergency cover stops the damage spreading while we schedule the repair. Call and we will tell you the price before we drive out.",
+    "cta": "Call now"
+  },
+  "photos": {
+    "repair": "/webdev-portfolio/hillside-roof/repair.jpg",
+    "inspection": "/webdev-portfolio/hillside-roof/inspection.jpg",
+    "gutter": "/webdev-portfolio/hillside-roof/gutter.jpg",
+    "crew": "/webdev-portfolio/hillside-roof/crew.jpg"
+  },
+  "demo": true,
+  "meta": {
+    "title": "Hillside Roof Co - Roofing in Denver",
+    "description": "Roofing in Denver. Roof repair, Full replacement, Gutters."
+  }
+}

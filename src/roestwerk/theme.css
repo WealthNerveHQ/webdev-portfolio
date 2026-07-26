@@ -1,4 +1,5 @@
 @import '../index.css';
+@source '.';
 
 /* Self-hosted. No Google Fonts CDN: embedding it transmits visitor IPs to Google
    without consent, which LG Muenchen I (3 O 17493/20) held to be a DSGVO breach.

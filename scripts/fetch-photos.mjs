@@ -8,7 +8,7 @@
  * Key is read from the existing social-media config. It is never printed or committed.
  * Run: node scripts/fetch-photos.mjs
  */
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -38,9 +38,54 @@ const WANTED = [
   { site: 'roestwerk', file: 'werkstatt.jpg', q: 'coffee roastery interior roasting machine', w: 1200, orientation: 'landscape' },
 ]
 
+/**
+ * Generated sites pass --site and --trade instead of using the hand-built list
+ * above, so their photo queries come from the trade scaffold.
+ */
+async function wantedFor(site, tradeName) {
+  const { TRADES } = await import('../src/gen/trades.ts')
+  const trade = TRADES[tradeName]
+  if (!trade) throw new Error(`Unknown trade "${tradeName}"`)
+  return Object.entries(trade.photos).map(([key, q], i) => ({
+    site,
+    file: `${key}.jpg`,
+    q,
+    w: i === 0 ? 1200 : 900,
+    orientation: 'landscape',
+    // Without this every site in a trade gets the same top result, and two
+    // roofing sites sharing identical photography reads as a template even when
+    // the palette and layout differ.
+    //
+    // Uses the sibling index rather than a hash of the slug: a hash over a small
+    // page range collides, and the first two roofers duly landed on the same page.
+    page: siteIndex(site, tradeName),
+  }))
+}
+
+/** 1-based position of this site among same-trade siblings, so pages never collide. */
+function siteIndex(site, tradeName) {
+  const dir = join(ROOT, 'businesses')
+  if (!existsSync(dir)) return 1
+  const peers = readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')))
+    .filter((b) => b.trade === tradeName)
+    .map((b) => b.slug)
+    .sort()
+  const i = peers.indexOf(site)
+  return i === -1 ? 1 : i + 1
+}
+
+const siteArg = process.argv[process.argv.indexOf('--site') + 1]
+const tradeArg = process.argv[process.argv.indexOf('--trade') + 1]
+const jobs =
+  process.argv.includes('--site') && process.argv.includes('--trade')
+    ? await wantedFor(siteArg, tradeArg)
+    : WANTED
+
 const credits = []
 
-for (const item of WANTED) {
+for (const item of jobs) {
   const outDir = join(ROOT, 'public', item.site)
   mkdirSync(outDir, { recursive: true })
   const outFile = join(outDir, item.file)
@@ -49,7 +94,7 @@ for (const item of WANTED) {
     continue
   }
 
-  const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(item.q)}&per_page=1&orientation=${item.orientation}`
+  const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(item.q)}&per_page=1&page=${item.page ?? 1}&orientation=${item.orientation}`
   const res = await fetch(url, { headers: { Authorization: KEY } })
   if (!res.ok) throw new Error(`Pexels search failed ${res.status} for "${item.q}"`)
   const data = await res.json()

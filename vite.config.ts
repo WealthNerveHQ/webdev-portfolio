@@ -22,6 +22,8 @@ export default defineConfig({
         kesselstrom: path.resolve(__dirname, 'kesselstrom/index.html'),
         kesselstromImpressum: path.resolve(__dirname, 'kesselstrom/impressum.html'),
         kesselstromDatenschutz: path.resolve(__dirname, 'kesselstrom/datenschutz.html'),
+        apexRoofing: path.resolve(__dirname, 'apex-roofing/index.html'),
+        hillsideRoof: path.resolve(__dirname, 'hillside-roof/index.html'),
       },
     },
   },
