@@ -6,3 +6,5 @@ dist/
 _verify/
 .DS_Store
 *.local
+
+prospects/
