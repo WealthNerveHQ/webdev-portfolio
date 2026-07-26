@@ -1,0 +1,86 @@
+@import '../index.css';
+
+/* Self-hosted. No Google Fonts CDN: embedding it transmits visitor IPs to Google
+   without consent, which LG Muenchen I (3 O 17493/20) held to be a DSGVO breach. */
+@import '@fontsource-variable/archivo';
+@import '@fontsource-variable/geist';
+
+/* Kesselstrom Elektrotechnik
+   Palette family: monochrome paper/graphite plus one saturated pop (cobalt).
+   Deliberately not the Forest + amber family used by Roestwerk Sued.
+   Radius is locked at 4px everywhere: technical, not soft. */
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    --paper: #f1f1ee;
+    --paper-raised: #ffffff;
+    --graphite: #15171a;
+    --graphite-soft: #5c6168;
+    --cobalt: #1b3ce8;
+    --hairline: #d9d9d3;
+
+    --background: var(--paper);
+    --foreground: var(--graphite);
+    --card: var(--paper-raised);
+    --card-foreground: var(--graphite);
+    --popover: var(--paper-raised);
+    --popover-foreground: var(--graphite);
+    --primary: var(--cobalt);
+    --primary-foreground: #ffffff;
+    --secondary: #e6e6e1;
+    --secondary-foreground: var(--graphite);
+    --muted: #e6e6e1;
+    --muted-foreground: var(--graphite-soft);
+    --accent: #e6e6e1;
+    --accent-foreground: var(--graphite);
+    --border: var(--hairline);
+    --input: var(--hairline);
+    --ring: var(--cobalt);
+  }
+
+  /* Auto theme. The whole page flips together, no section inverts on its own. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #101214;
+      --paper-raised: #191c1f;
+      --graphite: #ecece7;
+      --graphite-soft: #9aa0a7;
+      --cobalt: #6d8bff;
+      --hairline: #2b2f34;
+
+      --secondary: #22262a;
+      --secondary-foreground: var(--graphite);
+      --muted: #22262a;
+      --muted-foreground: var(--graphite-soft);
+      --accent: #22262a;
+      --accent-foreground: var(--graphite);
+      --primary-foreground: #0d0f11;
+    }
+  }
+}
+
+@theme inline {
+  --font-display: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-graphite: var(--graphite);
+  --color-cobalt: var(--cobalt);
+  --color-hairline: var(--hairline);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+  }
+  ::selection {
+    background: var(--cobalt);
+    color: #fff;
+  }
+  /* Anchor jumps land below the sticky header instead of under it. */
+  :where(section[id]) {
+    scroll-margin-top: 5.5rem;
+  }
+}

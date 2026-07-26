@@ -1,0 +1,91 @@
+@import '../index.css';
+
+/* Self-hosted. No Google Fonts CDN: embedding it transmits visitor IPs to Google
+   without consent, which LG Muenchen I (3 O 17493/20) held to be a DSGVO breach.
+   The previous build of this page loaded both families from the CDN. */
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/karla';
+
+/* Roestwerk Sued
+   Palette family: Forest (deep green ground, bone text, amber accent).
+   Carried over from the earlier build, which had already been through an
+   anti-slop pass. Theme is locked dark on purpose: the roastery brand is a dark
+   room, and a light variant would not be the same identity. */
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    --bark: #141e18;
+    --bark-2: #1c2a22;
+    --bark-3: #24362c;
+    --bone: #e9e7df;
+    --bone-dim: #a8b0a8;
+    --amber: #e3a445;
+
+    --background: var(--bark);
+    --foreground: var(--bone);
+    --card: var(--bark-2);
+    --card-foreground: var(--bone);
+    --popover: var(--bark-2);
+    --popover-foreground: var(--bone);
+    --primary: var(--amber);
+    --primary-foreground: #141e18;
+    --secondary: var(--bark-3);
+    --secondary-foreground: var(--bone);
+    --muted: var(--bark-3);
+    --muted-foreground: var(--bone-dim);
+    --accent: var(--bark-3);
+    --accent-foreground: var(--bone);
+    --border: #2c4034;
+    --input: #2c4034;
+    --ring: var(--amber);
+  }
+}
+
+@theme inline {
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Karla Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-bark: var(--bark);
+  --color-bark-2: var(--bark-2);
+  --color-bark-3: var(--bark-3);
+  --color-bone: var(--bone);
+  --color-bone-dim: var(--bone-dim);
+  --color-amber: var(--amber);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+  }
+  ::selection {
+    background: var(--amber);
+    color: var(--bark);
+  }
+  :where(section[id]) {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+/* The one marquee on the page. Paused for anyone who asked for reduced motion. */
+@keyframes roestwerk-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: roestwerk-marquee 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
