@@ -31,6 +31,11 @@ const WANTED = [
   { site: 'roestwerk', file: 'espresso.jpg', q: 'espresso portafilter extraction cafe', w: 1200, orientation: 'landscape' },
   { site: 'roestwerk', file: 'tresen.jpg', q: 'coffee shop counter interior barista', w: 900, orientation: 'portrait' },
   { site: 'roestwerk', file: 'bohnen.jpg', q: 'roasted coffee beans close up', w: 1200, orientation: 'landscape' },
+  { site: 'roestwerk', file: 'tueten.jpg', q: 'coffee bag packaging kraft paper', w: 1200, orientation: 'landscape' },
+  { site: 'roestwerk', file: 'farm.jpg', q: 'coffee plantation farm green cherries', w: 1200, orientation: 'landscape' },
+  { site: 'roestwerk', file: 'ernte.jpg', q: 'coffee cherries harvest hands farmer', w: 900, orientation: 'landscape' },
+  { site: 'roestwerk', file: 'trocknung.jpg', q: 'coffee beans drying raised beds', w: 900, orientation: 'landscape' },
+  { site: 'roestwerk', file: 'werkstatt.jpg', q: 'coffee roastery interior roasting machine', w: 1200, orientation: 'landscape' },
 ]
 
 const credits = []

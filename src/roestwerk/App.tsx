@@ -2,6 +2,13 @@ import { Clock, MapPin, Phone } from '@phosphor-icons/react'
 
 import { Hero07 } from '@/components/ui/hero-07'
 import { Reveal } from '@/components/reveal'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { Bestellen } from './Bestellen'
 
 const TEL = '+4971112345678'
 const TEL_LABEL = '0711 123 456 78'
@@ -39,6 +46,8 @@ function Header() {
         </a>
         <nav className="text-bone-dim hidden items-center gap-7 text-sm md:flex">
           <a className="hover:text-bone transition-colors" href="#kaffee">Kaffee</a>
+          <a className="hover:text-bone transition-colors" href="#bestellen">Bestellen</a>
+          <a className="hover:text-bone transition-colors" href="#fragen">Fragen</a>
           <a className="hover:text-bone transition-colors" href="#besuch">Besuch</a>
         </nav>
         <a
@@ -130,6 +139,163 @@ function Karte() {
           </Reveal>
         ))}
       </div>
+    </section>
+  )
+}
+
+/* Image-led, so it reads differently from the text cards in Unser Kaffee. */
+function Herkunft() {
+  const orte = [
+    {
+      image: `${BASE}roestwerk/farm.jpg`,
+      alt: 'Reifende Kaffeekirschen am Strauch',
+      ort: 'Fazenda Rainha, Brasilien',
+      text: 'Seit 2019 unser Hausespresso. Wir kaufen direkt bei der Familie Alvarenga, ohne Zwischenhändler.',
+    },
+    {
+      image: `${BASE}roestwerk/ernte.jpg`,
+      alt: 'Hände halten frisch gepflückte rote Kaffeekirschen',
+      ort: 'Handverlesen',
+      text: 'Nur reife Kirschen kommen in den Sack. Das ist teurer als Streifenpflücken und der Grund, warum wenig Säure im Espresso landet.',
+    },
+    {
+      image: `${BASE}roestwerk/trocknung.jpg`,
+      alt: 'Kaffeebohnen trocknen auf erhöhten Betten',
+      ort: 'Natural aufbereitet',
+      text: 'Drei Wochen auf Trockenbetten, täglich gewendet. Daher die Schokoladennote, ohne dass wir irgendetwas zusetzen.',
+    },
+  ]
+
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+      <Reveal>
+        <h2 className="font-display text-bone max-w-2xl text-[clamp(1.8rem,4vw,2.7rem)] leading-[1.06] font-semibold tracking-[-0.025em] text-balance">
+          Woher der Kaffee kommt
+        </h2>
+        <p className="text-bone-dim mt-4 max-w-[58ch] text-base leading-relaxed">
+          Wir kaufen kleine Partien direkt ein. Das heisst weniger Auswahl, dafür wissen wir bei
+          jedem Sack, wer ihn geerntet hat.
+        </p>
+      </Reveal>
+
+      <div className="mt-12 grid gap-5 md:grid-cols-3">
+        {orte.map((o, i) => (
+          <Reveal key={o.ort} delay={0.05 * i}>
+            <figure className="m-0">
+              <div className="border-border aspect-4/3 overflow-hidden rounded-xl border">
+                <img
+                  src={o.image}
+                  alt={o.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="size-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-4">
+                <h3 className="font-display text-bone text-lg font-semibold tracking-[-0.015em]">
+                  {o.ort}
+                </h3>
+                <p className="text-bone-dim mt-1.5 text-sm leading-relaxed">{o.text}</p>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Roesterei() {
+  const plan = [
+    { tag: 'Donnerstag', was: 'Rösttag. Der Laden riecht entsprechend.' },
+    { tag: 'Freitag', was: 'Frische Tüten im Regal, Versand geht raus.' },
+    { tag: 'Samstag', was: 'Offene Verkostung um 11 Uhr, ohne Anmeldung.' },
+  ]
+
+  return (
+    <section className="border-border border-y">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:py-28 lg:grid-cols-2 lg:items-center">
+        <Reveal>
+          <div className="border-border aspect-4/3 overflow-hidden rounded-xl border">
+            <img
+              src={`${BASE}roestwerk/werkstatt.jpg`}
+              alt="Röster kontrolliert die Trommel während des Röstvorgangs"
+              loading="lazy"
+              decoding="async"
+              className="size-full object-cover"
+            />
+          </div>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="font-display text-bone text-[clamp(1.8rem,4vw,2.7rem)] leading-[1.06] font-semibold tracking-[-0.025em] text-balance">
+            Fünf Kilo auf einmal
+          </h2>
+          <p className="text-bone-dim mt-4 max-w-[52ch] text-base leading-relaxed">
+            Unser Trommelröster fasst fünf Kilo. Das ist wenig, und genau das ist der Punkt: Marie
+            steht daneben und hört zu, statt ein Profil abzuspielen. Jede Charge wird protokolliert,
+            und wenn eine nicht schmeckt, wird sie nicht verkauft.
+          </p>
+          <dl className="mt-8 grid gap-px overflow-hidden">
+            {plan.map((p) => (
+              <div key={p.tag} className="border-border flex flex-wrap gap-x-6 gap-y-1 border-t py-4">
+                <dt className="font-display text-bone w-32 shrink-0 text-[15px] font-semibold">
+                  {p.tag}
+                </dt>
+                <dd className="text-bone-dim flex-1 text-sm leading-relaxed">{p.was}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function Fragen() {
+  const faq = [
+    {
+      q: 'Wie frisch ist der Kaffee wirklich?',
+      a: 'Wir rösten donnerstags und verschicken freitags. Auf jeder Tüte steht das Röstdatum, nicht nur ein Mindesthaltbarkeitsdatum. Espresso schmeckt aus unserer Sicht zwischen dem fünften und dem dreissigsten Tag nach der Röstung am besten.',
+    },
+    {
+      q: 'Ganze Bohne oder gemahlen?',
+      a: 'Ganze Bohne, wenn Sie eine Mühle haben. Gemahlener Kaffee verliert innerhalb weniger Tage deutlich an Aroma. Wenn Sie keine Mühle haben, mahlen wir passend zu Ihrer Maschine, sagen Sie uns einfach welche.',
+    },
+    {
+      q: 'Kann ich das Abo pausieren oder kündigen?',
+      a: 'Jederzeit, formlos per E-Mail oder Anruf. Es gibt keine Mindestlaufzeit und keine Kündigungsfrist. Wenn Sie in den Urlaub fahren, pausieren wir die Lieferung.',
+    },
+    {
+      q: 'Bekomme ich den Kaffee auch ohne Abo?',
+      a: 'Ja. Wählen Sie im Bestellformular "Einmalig". Oder kommen Sie vorbei, im Laden gibt es immer beide Röstungen.',
+    },
+    {
+      q: 'Beliefern Sie Cafés und Büros?',
+      a: 'Ja, ab fünf Kilo im Monat mit Staffelpreis. Für Büros stellen wir auf Wunsch eine Mühle dazu. Rufen Sie an, das klären wir in fünf Minuten.',
+    },
+  ]
+
+  return (
+    <section id="fragen" className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
+      <Reveal>
+        <h2 className="font-display text-bone text-[clamp(1.8rem,4vw,2.7rem)] leading-[1.06] font-semibold tracking-[-0.025em] text-balance">
+          Häufige Fragen
+        </h2>
+      </Reveal>
+      <Reveal delay={0.06}>
+        <Accordion type="single" collapsible className="mt-10 w-full">
+          {faq.map((f) => (
+            <AccordionItem key={f.q} value={f.q}>
+              <AccordionTrigger className="font-display text-bone text-left text-base font-semibold tracking-[-0.01em]">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-bone-dim max-w-[62ch] text-sm leading-relaxed">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Reveal>
     </section>
   )
 }
@@ -268,12 +434,16 @@ export default function App() {
           landscapeImage={`${BASE}roestwerk/bohnen.jpg`}
           landscapeAlt="Frisch geröstete Kaffeebohnen aus nächster Nähe"
           animation="subtle"
-          primaryCTA={{ ctaEnabled: true, text: 'Öffnungszeiten', link: '#besuch' }}
-          secondaryCTA={{ ctaEnabled: true, text: 'Unser Kaffee', link: '#kaffee', variant: 'outline' }}
+          primaryCTA={{ ctaEnabled: true, text: 'Bohnen bestellen', link: '#bestellen' }}
+          secondaryCTA={{ ctaEnabled: true, text: 'Öffnungszeiten', link: '#besuch', variant: 'outline' }}
         />
         <Band />
         <Karte />
+        <Bestellen />
+        <Herkunft />
         <Zitat />
+        <Roesterei />
+        <Fragen />
         <Besuch />
       </main>
       <Footer />
