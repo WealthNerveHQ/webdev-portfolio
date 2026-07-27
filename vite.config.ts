@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+﻿import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
@@ -24,7 +24,10 @@ export default defineConfig({
         kesselstromDatenschutz: path.resolve(__dirname, 'kesselstrom/datenschutz.html'),
         apexRoofing: path.resolve(__dirname, 'apex-roofing/index.html'),
         hillsideRoof: path.resolve(__dirname, 'hillside-roof/index.html'),
+        elmexabarber: path.resolve(__dirname, 'elmexabarber/index.html'),
+        elmexabarberPrivacy: path.resolve(__dirname, 'elmexabarber/privacy.html'),
       },
     },
   },
 })
+

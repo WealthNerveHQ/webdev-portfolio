@@ -1,0 +1,4 @@
+- `elmexabarber/cut.jpg` — RDNE Stock project, [Pexels](https://www.pexels.com/photo/a-barber-at-work-7697445/)
+- `elmexabarber/shop.jpg` — Лена Gromakova, [Pexels](https://www.pexels.com/photo/interior-of-hairdresser-saloon-9146943/)
+- `elmexabarber/shave.jpg` — Clark Enzzo, [Pexels](https://www.pexels.com/photo/a-man-sitting-on-the-chair-9315046/)
+- `elmexabarber/tools.jpg` — RDNE Stock project, [Pexels](https://www.pexels.com/photo/tools-at-barbershop-7697712/)

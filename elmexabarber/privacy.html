@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Privacy - Elmexabarber</title>
+    <script type="module">
+      import '@fontsource-variable/outfit'
+      import '@fontsource-variable/manrope'
+    </script>
+    <style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#faf8f5;--fg:#141210;--soft:#5d554c;--line:#ddd6cc;--accent:#8a5a2b;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#100f0e;--fg:#f2ece4;--soft:#a29889;--line:#302b25;--accent:#d19a5e;
+}}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font-family:'Manrope Variable',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+.wrap{max-width:44rem;margin:0 auto;padding:clamp(2.5rem,7vw,5rem) 1.5rem}
+h1{font-family:'Outfit Variable',ui-sans-serif,system-ui,sans-serif;font-weight:800;
+  font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.03em;line-height:1.05;margin:0 0 2rem;text-wrap:balance}
+h2{font-family:'Outfit Variable',ui-sans-serif,system-ui,sans-serif;font-weight:700;
+  font-size:1.15rem;letter-spacing:-.02em;margin:2.5rem 0 .6rem}
+p,li{color:var(--soft);font-size:.95rem;margin:0 0 .9rem}
+strong{color:var(--fg);font-weight:600}
+a{color:var(--accent);font-weight:600}
+ul{padding-left:1.1rem;margin:0 0 .9rem}
+.back{display:inline-block;margin-bottom:2.5rem;font-size:.9rem}
+.note{border:1px dashed var(--line);border-radius:2px;padding:1rem;margin-bottom:2.5rem}
+.note p{margin:0;font-size:.85rem}
+footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.5rem;font-size:.85rem;color:var(--soft)}
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <a class="back" href="./">Back to the site</a>
+      <h1>Privacy</h1>
+
+      <h2>The short version</h2>
+      <p>
+        This website sets <strong>no cookies</strong>, runs <strong>no analytics or tracking</strong>,
+        and loads <strong>no external fonts, maps or videos</strong>. There is no contact form and
+        no newsletter. Nothing you do here is recorded by us.
+      </p>
+
+      <h2>Server logs</h2>
+      <p>
+        The hosting provider records standard access data when a page is requested: the page,
+        the time, the amount of data transferred, browser type, operating system, referrer and
+        IP address. This is used only to keep the site running and is not combined with anything else.
+      </p>
+
+      <h2>Getting in touch</h2>
+      <p>
+        If you call (512) 999-4411, we use what you tell us to answer your question and nothing more.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Elmexabarber<br />
+        9063 Research Boulevard, Unit 102<br />
+        78758 Austin, TX<br />
+        (512) 999-4411
+      </p>
+
+      <footer>© 2026 Elmexabarber</footer>
+    </main>
+  </body>
+</html>

@@ -180,6 +180,10 @@ createRoot(document.getElementById('root')!).render(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- noindex until the business has actually agreed to buy it. A spec site
+         carrying a real company's name should not compete with, or be mistaken
+         for, their own presence in search. Remove this line on handover. -->
+    <meta name="robots" content="noindex" />
     <title>${business.meta.title}</title>
     <meta name="description" content="${business.meta.description}" />
   </head>

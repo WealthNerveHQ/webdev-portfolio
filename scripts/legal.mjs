@@ -8,7 +8,7 @@
  *
  * Run: node scripts/legal.mjs
  */
-import { writeFileSync, mkdirSync } from 'node:fs'
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -230,4 +230,75 @@ for (const site of sites) {
   writeFileSync(join(dir, 'impressum.html'), impressum(site), 'utf8')
   writeFileSync(join(dir, 'datenschutz.html'), datenschutz(site), 'utf8')
   console.log(`ok ${site.dir}/impressum.html + datenschutz.html`)
+}
+
+/**
+ * English privacy page for US and UK sites. Short because the sites genuinely do
+ * nothing: no cookies, no analytics, no forms. The footer links to it, and a
+ * broken link on a page you are about to show a prospect is not acceptable.
+ *
+ *   node scripts/legal.mjs --privacy <slug>
+ */
+const privacyFor = process.argv[process.argv.indexOf('--privacy') + 1]
+if (process.argv.includes('--privacy') && privacyFor) {
+  const biz = JSON.parse(readFileSync(join(ROOT, 'businesses', `${privacyFor}.json`), 'utf8'))
+  const css = {
+    bg: '#faf8f5', fg: '#141210', soft: '#5d554c', line: '#ddd6cc', accent: '#8a5a2b',
+    bgDark: '#100f0e', fgDark: '#f2ece4', softDark: '#a29889', lineDark: '#302b25', accentDark: '#d19a5e',
+    display: "'Outfit Variable'", body: "'Manrope Variable'", radius: '2px',
+  }
+  const page = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Privacy - ${biz.name}</title>
+    <script type="module">
+      import '@fontsource-variable/outfit'
+      import '@fontsource-variable/manrope'
+    </script>
+    <style>
+${styleFor(css, false)}
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <a class="back" href="./">Back to the site</a>
+      <h1>Privacy</h1>
+
+      <h2>The short version</h2>
+      <p>
+        This website sets <strong>no cookies</strong>, runs <strong>no analytics or tracking</strong>,
+        and loads <strong>no external fonts, maps or videos</strong>. There is no contact form and
+        no newsletter. Nothing you do here is recorded by us.
+      </p>
+
+      <h2>Server logs</h2>
+      <p>
+        The hosting provider records standard access data when a page is requested: the page,
+        the time, the amount of data transferred, browser type, operating system, referrer and
+        IP address. This is used only to keep the site running and is not combined with anything else.
+      </p>
+
+      <h2>Getting in touch</h2>
+      <p>
+        If you call ${biz.phoneLabel}, we use what you tell us to answer your question and nothing more.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        ${biz.name}<br />
+        ${biz.address.street}<br />
+        ${[biz.address.postcode, biz.address.city].filter(Boolean).join(' ')}<br />
+        ${biz.phoneLabel}
+      </p>
+
+      <footer>© ${new Date().getFullYear()} ${biz.name}</footer>
+    </main>
+  </body>
+</html>
+`
+  writeFileSync(join(ROOT, privacyFor, 'privacy.html'), page, 'utf8')
+  console.log(`ok ${privacyFor}/privacy.html`)
 }

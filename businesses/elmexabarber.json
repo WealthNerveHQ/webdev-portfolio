@@ -1,0 +1,96 @@
+{
+  "slug": "elmexabarber",
+  "name": "Elmexabarber",
+  "shortName": "Elmexabarber",
+  "trade": "barber",
+  "lang": "en",
+  "country": "us",
+  "kit": "black-tan",
+  "sections": ["heroBand", "servicesList", "gallery", "faq", "contact"],
+  "eyebrow": "A men's barber shop on Research Boulevard in north Austin. Walk in, or call ahead and we will hold a chair for you.",
+  "headline": "Men's barbering on Research Boulevard.",
+  "subline": "Cuts, fades and beard work, Monday to Friday. Card and contactless accepted.",
+  "phone": "+15129994411",
+  "phoneLabel": "(512) 999-4411",
+  "address": {
+    "street": "9063 Research Boulevard, Unit 102",
+    "city": "Austin, TX",
+    "postcode": "78758"
+  },
+  "hours": [
+    { "day": "Mon to Fri", "time": "9:00 to 17:00" },
+    { "day": "Sat and Sun", "time": "closed" }
+  ],
+  "services": [
+    {
+      "title": "Haircut",
+      "body": "A consultation first, then a cut shaped to how your hair actually grows, finished so you can repeat it at home."
+    },
+    {
+      "title": "Skin fade",
+      "body": "Clipper work taken down to the skin and blended properly, with no hard lines left behind."
+    },
+    {
+      "title": "Beard trim",
+      "body": "Shaped and lined with a razor, hot towel, and oil worked through at the end."
+    },
+    {
+      "title": "Hot towel shave",
+      "body": "The traditional straight razor shave. Hot towels, two passes, and time in the chair."
+    },
+    {
+      "title": "Cut and beard together",
+      "body": "Both in one visit, which is how most regulars book it."
+    },
+    {
+      "title": "Kids' cuts",
+      "body": "Patient work for younger clients."
+    }
+  ],
+  "usps": [
+    { "k": "Open", "v": "Mon to Fri" },
+    { "k": "Location", "v": "North Austin" },
+    { "k": "Booking", "v": "by phone" },
+    { "k": "Payment", "v": "card and contactless" }
+  ],
+  "process": null,
+  "faq": [
+    {
+      "q": "When are you open?",
+      "a": "Monday to Friday, 9:00 in the morning until 5:00 in the afternoon. We are closed Saturday and Sunday."
+    },
+    {
+      "q": "Where exactly are you?",
+      "a": "9063 Research Boulevard, Unit 102, Austin TX 78758, in north Austin just off US-183."
+    },
+    {
+      "q": "How do I book?",
+      "a": "Call (512) 999-4411 and we will put you in the book. If you would rather just turn up, come earlier in the day when it is quieter."
+    },
+    {
+      "q": "What payment do you take?",
+      "a": "Card and contactless, including tap to pay."
+    },
+    {
+      "q": "Do you cut children's hair?",
+      "a": "Yes. Bring them in earlier in the day if you can, it is calmer and the wait is shorter."
+    }
+  ],
+  "quote": null,
+  "cta": {
+    "primary": { "label": "Call the shop", "href": "tel:+15129994411" },
+    "secondary": { "label": "Find us", "href": "#kontakt" }
+  },
+  "band": null,
+  "photos": {
+    "cut": "/webdev-portfolio/elmexabarber/cut.jpg",
+    "shop": "/webdev-portfolio/elmexabarber/shop.jpg",
+    "shave": "/webdev-portfolio/elmexabarber/shave.jpg",
+    "tools": "/webdev-portfolio/elmexabarber/tools.jpg"
+  },
+  "demo": false,
+  "meta": {
+    "title": "Elmexabarber - Men's barber shop in north Austin, TX",
+    "description": "Men's barber on Research Boulevard in north Austin. Cuts, skin fades, beard trims and hot towel shaves, Monday to Friday. Call (512) 999-4411."
+  }
+}

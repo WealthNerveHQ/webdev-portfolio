@@ -250,7 +250,7 @@ export function ServicesList({ b, title, lead }: { b: Business; title: string; l
   return (
     <section id="leistungen" className={`${WRAP} ${PAD}`}>
       <SectionHead title={title} lead={lead} />
-      <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-start">
+      <div className="mt-12">
         <ul className="border-border border-t">
           {b.services.map((s, i) => (
             <Reveal key={s.title} delay={0.03 * i}>
